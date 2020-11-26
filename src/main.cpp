@@ -20,7 +20,7 @@ using namespace std;
 int x = 0, y = 0;
 string nome;
 
-
+// LE AS TECLAS CIMA, BAIXO E ENTER
 bool lerTeclas(int limx, int limy)
 {
 
@@ -47,22 +47,163 @@ bool lerTeclas(int limx, int limy)
   };
 }
 
-
-void pressEnter(){
-    do
+// AGUARDA O USUARIO PRESSINAR ENTER
+void pressEnter()
+{
+  do
   {
     cout << "\nPressione ENTRER para continuar...\n";
   } while (lerTeclas(0, 0) != true);
 }
 
+// MENU DE ATRIBUICAO DE PONTOS DO PLAYER
+void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double *pts_reduzDano, double *pts_armadura)
+{
+  double pts_input;
+  int estado = 0;
+
+  // Imprime pontos iniciais
+  system("cls");
+  cout << "Vamos comecar distribuindo seus pontos!\n"
+       << endl;
+
+  cout << "\nPontos disponiveis: "
+       << *pontos_dispon;
+  cout << "\nPontos de vida: "
+       << *pts_vida;
+  cout << "\nPontos de dano: "
+       << *pts_dano;
+  cout << "\nPontos de reducao de dano: "
+       << *pts_reduzDano;
+  cout << "\nPontos de armadura: "
+       << *pts_armadura << endl;
+
+  pressEnter();
+
+  system("cls");
+
+  // Solicita a distribuicao dos pontos
+  do
+  {
+    switch (estado)
+    {
+    case 0:
+      cout << "Voce ainda tem " << *pontos_dispon << " pontos." << endl;
+      cout << "Vida (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= *pontos_dispon))
+      {
+        *pts_vida += pts_input;
+        *pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 1;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 0;
+      }
+      break;
+    case 1:
+      cout << "Voce ainda tem " << *pontos_dispon << " pontos." << endl;
+      cout << "Dano (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= *pontos_dispon))
+      {
+        *pts_dano += pts_input;
+        *pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 2;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 1;
+      }
+      break;
+    case 2:
+
+      cout << "Voce ainda tem " << *pontos_dispon << " pontos." << endl;
+      cout << "reducao de dano do inimigo (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= *pontos_dispon))
+      {
+        *pts_reduzDano += pts_input;
+        *pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 3;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 2;
+      }
+      break;
+    case 3:
+
+      cout << "Voce ainda tem " << *pontos_dispon << " pontos." << endl;
+      cout << "Armadura (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= *pontos_dispon))
+      {
+        *pts_armadura += pts_input;
+        *pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 0;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 3;
+      }
+      break;
+    }
+
+  } while (*pontos_dispon > 0);
+
+
+  // Imprime os pontos finais
+  cout << "\nPontos disponiveis: "
+       << *pontos_dispon;
+  cout << "\nPontos de vida: "
+       << *pts_vida;
+  cout << "\nPontos de dano: "
+       << *pts_dano;
+  cout << "\nPontos de reducao de dano: "
+       << *pts_reduzDano;
+  cout << "\nPontos de armadura: "
+       << *pts_armadura << endl;
+}
+
+// INICIA A CLASSE DO PLAYER
 Personagem *iniciaJogador()
 {
 
+  double pontos_dispon = 20;
+  double pts_vida = 0, pts_dano = 0, pts_reduzDano = 0, pts_input = 0, pts_armadura = 0;
+
+  // Solicita o nome
   system("cls");
   cout << "HEY GUERREIRO, qual seu nome? " << endl;
   cin >> nome;
 
-  // MENU NACIONALIDADE
+  // Solicita a nacionalidade
   do
   {
     system("cls");
@@ -146,6 +287,7 @@ Personagem *iniciaJogador()
     }
   } while (lerTeclas(0, 4) != true);
 
+  // Explica o sistema de pontos
   system("cls");
   cout << "\nOla, caro " << nome << endl;
   cout << "Agora vamos distribuir seus pontos..." << endl;
@@ -157,123 +299,12 @@ Personagem *iniciaJogador()
 
   pressEnter();
 
-  // MENU DE ATRIBUICAO DE PONTOS
-  double pontos_dispon = 20;
-  double pts_vida = 0, pts_dano = 0, pts_reduzDano = 0, pts_input = 0, pts_armadura = 0;
-  int estado = 0;
-
-  system("cls");
-  cout << "Vamos comecar distribuindo seus pontos!\n"
-       << endl;
-  do
-  {
-    switch (estado)
-    {
-    case 0:
-      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
-      cout << "Vida (0-5)pts: ";
-      cin >> pts_input;
-      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
-      {
-        pts_vida += pts_input;
-        pontos_dispon -= pts_input;
-        system("cls");
-        cout << "Valor atribuido!\n"
-             << endl;
-        estado = 1;
-      }
-      else
-      {
-        system("cls");
-        cout << "Valor impossivel!\n"
-             << endl;
-        estado = 0;
-      }
-      break;
-    case 1:
-      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
-      cout << "Dano (0-5)pts: ";
-      cin >> pts_input;
-      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
-      {
-        pts_dano += pts_input;
-        pontos_dispon -= pts_input;
-        system("cls");
-        cout << "Valor atribuido!\n"
-             << endl;
-        estado = 2;
-      }
-      else
-      {
-        system("cls");
-        cout << "Valor impossivel!\n"
-             << endl;
-        estado = 1;
-      }
-      break;
-    case 2:
-
-      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
-      cout << "reducao de dano do inimigo (0-5)pts: ";
-      cin >> pts_input;
-      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
-      {
-        pts_reduzDano += pts_input;
-        pontos_dispon -= pts_input;
-        system("cls");
-        cout << "Valor atribuido!\n"
-             << endl;
-        estado = 3;
-      }
-      else
-      {
-        system("cls");
-        cout << "Valor impossivel!\n"
-             << endl;
-        estado = 2;
-      }
-      break;
-    case 3:
-
-      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
-      cout << "Armadura (0-5)pts: ";
-      cin >> pts_input;
-      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
-      {
-        pts_armadura += pts_input;
-        pontos_dispon -= pts_input;
-        system("cls");
-        cout << "Valor atribuido!\n"
-             << endl;
-        estado = 0;
-      }
-      else
-      {
-        system("cls");
-        cout << "Valor impossivel!\n"
-             << endl;
-        estado = 3;
-      }
-      break;
-    }
-
-  } while (pontos_dispon > 0);
-
-  cout << "\nPontos disponiveis: "
-       << pontos_dispon;
-  cout << "\nPontos de vida: "
-       << pts_vida;
-  cout << "\nPontos de dano: "
-       << pts_dano;
-  cout << "\nPontos de reducao de dano: "
-       << pts_reduzDano;
-  cout << "\nPontos de armadura: "
-       << pts_armadura << endl;
+  // Chama o sistema de adicionar pontos
+  setScore(&pontos_dispon, &pts_vida, &pts_dano, &pts_reduzDano, &pts_armadura);
 
   pressEnter();
 
-
-  // CRIAR O OBJETO DO PLAYER COM BASE EM SUAS PREFERÊNCIAS
+  // cria e retorna o objeto com base nas preferencias do jogador
   switch (y)
   {
   case 0:
@@ -352,7 +383,6 @@ int main()
   enemy[2] = new Alemao{"Cleveo", "Alemao", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
   enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
   enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
-
 
   Personagem *player;
 
