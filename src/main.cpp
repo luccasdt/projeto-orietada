@@ -325,20 +325,18 @@ Personagem *iniciaJogador()
   }
 }
 
-int main()
+// CRIA UM VETOR DE OBJETOS DE INIMIGOS
+void setEnemy(Personagem* enemy[5])
 {
-
-  // Cria o vetor de inimigos
-  Personagem *enemy[5];
-
-  // Cria o vetor de pontos
+  
+  // Cria o vetor de pontos e atributos aleatorios
   double pontos[5];
   double vida[5];
   double dano[5];
   double ReduzDano[5];
   double armadura[5];
 
-  // define os pontos em cada nivel
+  // Define os pontos em cada nivel
   pontos[0] = 20.0; //nivel 1
   pontos[1] = 25.0; //nivel 2
   pontos[2] = 30.0; //nivel 3
@@ -384,11 +382,32 @@ int main()
   enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
   enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
 
+}
+
+
+
+int main()
+{
+
+  // Cria o vetor de inimigos
+  Personagem* enemy[5];
+
+  // Inicializa os inimigos com valores aleatorios
+  setEnemy(enemy);
+
+  // Cria o player
   Personagem *player;
 
+  // inicializa o player de acordo com suas preferencias
   player = iniciaJogador();
 
+  // Testes
   player->detalhes();
+  enemy[0]->detalhes();
+  enemy[1]->detalhes();
+  enemy[2]->detalhes();
+  enemy[3]->detalhes();
+  enemy[4]->detalhes();
 
   return 0;
 }
