@@ -17,26 +17,6 @@ using namespace std;
 int x = 0, y = 0;
 string nome;
 
-int numJogadores()
-{
-  int numjogador = 2;
-  system("cls");
-  do
-  {
-    if (numjogador < 2 || numjogador > 4)
-    {
-      cout << "Quantidade invalida! Tente novamente..." << endl;
-    }
-    cout << "Para iniciar, me diga quantas pessoas vao jogar! (min:2, max: 4)" << endl;
-    cout << ">>";
-    cin >> numjogador;
-  } while (numjogador < 2 || numjogador > 4);
-
-  system("cls");
-  cout << "Ok, voce escolheu " << numjogador << " jogadores!" << endl;
-
-  return numjogador;
-}
 
 bool lerTeclas(int limx, int limy)
 {
@@ -148,13 +128,17 @@ Personagem* perfilJogador(int i)
 
 int main()
 {
-  int qnt_jogadores;
 
-  // Recebe quantos jogadores vão jogar
-  qnt_jogadores = numJogadores();
+  // Cria o vetor de viloes
+  Personagem* enemy[5];
 
-  // Cria o vetor de personagem com base em quantos jogadores vao jogar
-  Personagem* person[qnt_jogadores-1];
+  Viking enemy[0] = new Viking{"Luccas", life, 45, 0.8, 100, 1, 4, 3, 2};
+  Ingles enemy[1] = new Ingles{"ingles1", 360, 45, 0.8, 100, 1, 4, 3, 2};
+  Alemao enemy[2] = new Alemao{"alemao", 360, 45, 0.8, 100, 1, 4, 3, 2};
+  Viking enemy[3] = new Viking{"joao", 360, 45, 0.8, 100, 1, 4, 3, 2};
+  Alemao enemy[4] = new Alemao{"alemao", 360, 45, 0.8, 100, 1, 4, 3, 2};
+
+
 
   // Inicia as perguntas de cada jogador: Nome e nacionalidade
   for(int i = 0; i < qnt_jogadores; i++)
