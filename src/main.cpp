@@ -153,12 +153,9 @@ int main()
     do
     {
       double pts_vida = (rand() % 5);
-      cout << "\npontos sorteados:" << pts_vida;
       if (pontos[i] >= pts_vida)
       {
         pontos[i] -= pts_vida;
-        cout << "\npontos:" << pontos[i];
-        cout << "\nvida:" << vida[i];
         vida[i] = pts_vida;
       }
       double pts_dano = (rand() % 5);
@@ -179,15 +176,16 @@ int main()
         pontos[i] -= armadura_pts;
         armadura[i] = armadura_pts;
       }
-    } while (pontos[i] >= 0);
+      cout << "\n" << pontos[i] << endl;
+    } while (pontos[i] > 0);
   }
 
   // Inicializa os atributos dos inimigos
-  enemy[0] = new Viking{"Luccas", "Pedro", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2};
-  enemy[1] = new Ingles{"ingles1", "Pedro", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2};
-  enemy[2] = new Alemao{"alemao", "Pedro", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
-  enemy[3] = new Indio{"joao", "Pedro", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
-  enemy[4] = new Americano{"Americano", "Pedro", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
+  enemy[0] = new Viking{"Luccas", "Viking", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2};
+  enemy[1] = new Ingles{"Pedro", "Ingles", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2};
+  enemy[2] = new Alemao{"Cleveo", "Alemao", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
+  enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
+  enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
 
   for (auto x : enemy)
   {
