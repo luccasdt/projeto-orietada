@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 
+#include <string>
 #include <vector>
 #include <iostream>
 #include <conio.h>
 #include <iomanip>
-#include <string>
+#include <windows.h>
 
 #include "../class/personagem.h"
 #include "../class/viking.h"
@@ -18,6 +19,7 @@ using namespace std;
 
 int x = 0, y = 0;
 string nome;
+
 
 bool lerTeclas(int limx, int limy)
 {
@@ -36,46 +38,48 @@ bool lerTeclas(int limx, int limy)
       y += 1;
     return false;
     break;
-  case 75:
-    if (x > 0)
-      x -= 1;
-    return false;
-    break;
-  case 77:
-    if (x < limx)
-      x += 1;
-    return false;
-    break;
   case '\r':
     return true;
     break;
   default:
-    cout << "\n\n caiu no default lerTeclas() \n\n";
     return false;
+    break;
   };
 }
 
-Personagem *perfilJogador(int i)
+
+void pressEnter(){
+    do
+  {
+    cout << "\nPressione ENTRER para continuar...\n";
+  } while (lerTeclas(0, 0) != true);
+}
+
+Personagem *iniciaJogador()
 {
+
   system("cls");
-  cout << "Pessoa: " << i << endl;
   cout << "HEY GUERREIRO, qual seu nome? " << endl;
   cin >> nome;
 
+  // MENU NACIONALIDADE
   do
   {
     system("cls");
-    cout << "E VEIO DE ONDE? Inglaterra, franca ou dos mares?\n"
-         << endl;
+    cout << "E VEIO DE ONDE? Inglaterra, franca, dos mares, Brasil ou Ameria?" << endl;
 
     switch (y)
     {
     case 0:
-      cout << right << setw(2) << ">>" << left << setw(20) << "Ingles"
-           << " - Com um forte senso de justica e compaixao" << endl;
+      cout << ">>" << left << setw(20) << "Ingles"
+           << " - Grandes estudiosos das artes misticas, os Alemaos" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-           << "   os Ingless lutam para defender o povo e" << endl;
+           << "   estao sempre sedentos por sabedoria e buscam se" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Viking"
+           << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "america"
            << "   seu reino, sendo escudos inabalaveis." << endl;
       break;
     case 1:
@@ -85,46 +89,209 @@ Personagem *perfilJogador(int i)
            << " - estao sempre sedentos por sabedoria e buscam se" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Viking"
            << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "america"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
       break;
 
     case 2:
       cout << right << setw(2) << " " << left << setw(20) << "Ingles"
-           << "   Sem piedade, sem escrupulos, brutais e metodicos os Vikings" << endl;
+           << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-           << "   ceifam as almas daqueles que desejam, sempre perfeitos e" << endl;
+           << "   estao sempre sedentos por sabedoria e buscam se" << endl;
       cout << ">>" << left << setw(20) << "Viking"
-           << " - silenciosos, geram mais medo do que a propria morte, por serem ageis e precisos" << endl;
+           << " - aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "america"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      break;
+    case 3:
+      cout << right << setw(2) << " " << left << setw(20) << "Ingles"
+           << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "Alemao"
+           << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "Viking"
+           << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << ">>" << left << setw(20) << "do Brasil"
+           << "  -  seu reino, sendo escudos inabalaveis." << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "america"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      break;
+    case 4:
+      cout << right << setw(2) << " " << left << setw(20) << "Ingles"
+           << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "Alemao"
+           << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "Viking"
+           << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      cout << ">>" << left << setw(20) << "america"
+           << " - seu reino, sendo escudos inabalaveis." << endl;
       break;
     default:
-      cout << right << setw(2) << ">>" << left << setw(20) << "Ingles"
-           << " - Com um forte senso de justica e compaixao" << endl;
+      cout << ">>" << left << setw(20) << "Ingles"
+           << " - Grandes estudiosos das artes misticas, os Alemaos" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-           << "   os Ingless lutam para defender o povo e" << endl;
+           << "   estao sempre sedentos por sabedoria e buscam se" << endl;
       cout << right << setw(2) << " " << left << setw(20) << "Viking"
+           << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
+           << "   seu reino, sendo escudos inabalaveis." << endl;
+      cout << right << setw(2) << " " << left << setw(20) << "america"
            << "   seu reino, sendo escudos inabalaveis." << endl;
       break;
     }
-  } while (lerTeclas(0, 3) != true);
+  } while (lerTeclas(0, 4) != true);
 
+  system("cls");
+  cout << "\nOla, caro " << nome << endl;
+  cout << "Agora vamos distribuir seus pontos..." << endl;
+  cout << "\nVai funcionar assim:" << endl;
+  cout << "\nNivel 1: 20pts\nNivel 2: 25pts\nNivel 3: 30pts\nNivel 4: 35pts\nNivel 5: 40pts" << endl;
+  cout << "\n   Voce comeca no nivel 1. Logo vai poder distribuir 20pts," << endl;
+  cout << "e conforme derrotar um inimigo, sobe de nivel e ganha mais" << endl;
+  cout << "pontos para distribuir!" << endl;
+
+  pressEnter();
+
+  // MENU DE ATRIBUICAO DE PONTOS
+  double pontos_dispon = 20;
+  double pts_vida = 0, pts_dano = 0, pts_reduzDano = 0, pts_input = 0, pts_armadura = 0;
+  int estado = 0;
+
+  system("cls");
+  cout << "Vamos comecar distribuindo seus pontos!\n"
+       << endl;
+  do
+  {
+    switch (estado)
+    {
+    case 0:
+      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
+      cout << "Vida (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
+      {
+        pts_vida += pts_input;
+        pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 1;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 0;
+      }
+      break;
+    case 1:
+      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
+      cout << "Dano (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
+      {
+        pts_dano += pts_input;
+        pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 2;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 1;
+      }
+      break;
+    case 2:
+
+      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
+      cout << "reducao de dano do inimigo (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
+      {
+        pts_reduzDano += pts_input;
+        pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 3;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 2;
+      }
+      break;
+    case 3:
+
+      cout << "Voce ainda tem " << pontos_dispon << " pontos." << endl;
+      cout << "Armadura (0-5)pts: ";
+      cin >> pts_input;
+      if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= pontos_dispon))
+      {
+        pts_armadura += pts_input;
+        pontos_dispon -= pts_input;
+        system("cls");
+        cout << "Valor atribuido!\n"
+             << endl;
+        estado = 0;
+      }
+      else
+      {
+        system("cls");
+        cout << "Valor impossivel!\n"
+             << endl;
+        estado = 3;
+      }
+      break;
+    }
+
+  } while (pontos_dispon > 0);
+
+  cout << "\nPontos disponiveis: "
+       << pontos_dispon;
+  cout << "\nPontos de vida: "
+       << pts_vida;
+  cout << "\nPontos de dano: "
+       << pts_dano;
+  cout << "\nPontos de reducao de dano: "
+       << pts_reduzDano;
+  cout << "\nPontos de armadura: "
+       << pts_armadura << endl;
+
+  pressEnter();
+
+
+  // CRIAR O OBJETO DO PLAYER COM BASE EM SUAS PREFERÊNCIAS
   switch (y)
   {
   case 0:
-    return new Ingles{nome, "Ingles", 360, 45, 0.8, 100, 1, 4, 3, 2};
+    return new Ingles{nome, "Ingles", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
     break;
 
   case 1:
-    return new Alemao{nome, "Alemao", 360, 45, 0.8, 100, 1, 4, 3, 2};
+    return new Alemao{nome, "Alemao", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
     break;
 
   case 2:
-    return new Viking{nome, "Viking", 360, 45, 0.8, 100, 1, 4, 3, 2};
+    return new Viking{nome, "Viking", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
     break;
   default:
     cout << "\n\n default "
          << "o y e: " << y << endl;
-    return new Ingles{nome, "Ingles", 360, 45, 0.8, 100, 1, 4, 3, 2};
+    return new Ingles{nome, "Ingles", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
   }
-  system("cls");
 }
 
 int main()
@@ -176,7 +343,6 @@ int main()
         pontos[i] -= armadura_pts;
         armadura[i] = armadura_pts;
       }
-      cout << "\n" << pontos[i] << endl;
     } while (pontos[i] > 0);
   }
 
@@ -187,12 +353,12 @@ int main()
   enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
   enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
 
-  for (auto x : enemy)
-  {
-    x->detalhes();
-  }
 
-  cout << sizeof(enemy);
+  Personagem *player;
+
+  player = iniciaJogador();
+
+  player->detalhes();
 
   return 0;
 }
