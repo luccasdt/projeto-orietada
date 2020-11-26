@@ -3,6 +3,15 @@
     ".sequelizerc": "javascript",
     ".stylelintrc": "json",
     ".prettierrc": "json",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "array": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "utility": "cpp"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2B2757",
+    "titleBar.activeBackground": "#3C377A",
+    "titleBar.activeForeground": "#FAFAFD"
   }
 }

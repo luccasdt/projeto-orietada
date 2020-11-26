@@ -127,53 +127,54 @@ Personagem *perfilJogador(int i)
   system("cls");
 }
 
-vector<Personagem> iniciaEnemy()
+int main()
 {
+
   // Cria o vetor de inimigos
-  Personagem enemy[5];
+  Personagem *enemy[5];
 
   // Cria o vetor de pontos
-  vector<double> pontos[5];
+  double pontos[5];
+  double vida[5];
+  double dano[5];
+  double ReduzDano[5];
+  double armadura[5];
 
   // define os pontos em cada nivel
-  /*
-  Nivel 1: 20pts
-  Nivel 2: 25pts
-  Nivel 3: 30pts
-  Nivel 4: 35pts
-  Nivel 5: 40pts
-  */
-  pontos[0] = 20;
-  pontos[1] = 25;
-  pontos[2] = 30;
-  pontos[3] = 35;
-  pontos[4] = 40;
+  pontos[0] = 20.0; //nivel 1
+  pontos[1] = 25.0; //nivel 2
+  pontos[2] = 30.0; //nivel 3
+  pontos[3] = 35.0; //nivel 4
+  pontos[4] = 40.0; //nivel 5
 
   // Sorteia os pontos em cada atributo
-  for (i = 0; i < 5; i++)
+  for (int i = 0; i < 5; i++)
   {
     do
     {
       double pts_vida = (rand() % 5);
-      if (pontos[i] > pts_vida)
+      cout << "\npontos sorteados:" << pts_vida;
+      if (pontos[i] >= pts_vida)
       {
-        pontos[i] -= pta_vida;
+        pontos[i] -= pts_vida;
+        cout << "\npontos:" << pontos[i];
+        cout << "\nvida:" << vida[i];
         vida[i] = pts_vida;
       }
       double pts_dano = (rand() % 5);
-      if (pontos[i] > pts_dano)
+      if (pontos[i] >= pts_dano)
       {
         pontos[i] -= pts_dano;
         dano[i] = pts_dano;
       }
       double ReduzDano_pts = (rand() % 5);
-      if (pontos[i] > ReduzDano_pts)
+      if (pontos[i] >= ReduzDano_pts)
       {
         pontos[i] -= ReduzDano_pts;
         ReduzDano[i] = ReduzDano_pts;
       }
       double armadura_pts = (rand() % 5);
-      if (pontos[i] > armadura_pts)
+      if (pontos[i] >= armadura_pts)
       {
         pontos[i] -= armadura_pts;
         armadura[i] = armadura_pts;
@@ -182,50 +183,18 @@ vector<Personagem> iniciaEnemy()
   }
 
   // Inicializa os atributos dos inimigos
-  Viking enemy[0] = new Viking{"Luccas", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2};
-  Ingles enemy[1] = new Ingles{"ingles1", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2};
-  Alemao enemy[2] = new Alemao{"alemao", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
-  //Indio enemy[3] = new Indio{"joao", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
-  //Americano enemy[4] = new Americano{"Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
+  enemy[0] = new Viking{"Luccas", "Pedro", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2};
+  enemy[1] = new Ingles{"ingles1", "Pedro", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2};
+  enemy[2] = new Alemao{"alemao", "Pedro", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
+  enemy[3] = new Indio{"joao", "Pedro", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
+  enemy[4] = new Americano{"Americano", "Pedro", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
 
-  return enemy;
-}
+  for (auto x : enemy)
+  {
+    x->detalhes();
+  }
 
-int main()
-{
-  // Cria o vetor de inimigos
-  Personagem *myEnemy[5];
-
-  //nome{noMe}
-  //nacionalidade{nacio}
-  vector<double> vida[5];
-  vector<double> dano[5];
-  vector<double> ReduzDano[5];
-  vector<double> armadura[5];
-
-  myEnemy = iniciaEnemy();
-
-
-  /*
-  Personagem *p1 = new Personagem{"Luccas", 360, 45, 0.8, 100, 1, 4, 3, 2};
-  Viking *p2 = new Viking{"Luccas", 360, 45, 0.8, 100, 1, 4, 3, 2};
-  Viking *p3 = new Viking{"joao", 360, 45, 0.8, 100, 1, 4, 3, 2};
-  Ingles *p4 = new Ingles{"ingles1", 360, 45, 0.8, 100, 1, 4, 3, 2};
-  Alemao *p5 = new Alemao{"alemao", 360, 45, 0.8, 100, 1, 4, 3, 2};
-
-  p2->detalhes();
-  p3->detalhes();
-  p4->detalhes();
-  p5->detalhes();
-
-  p2->ataque(p3);
-
-  p3->detalhes();
-
-  p3->ataque(p2);
-
-  p2->detalhes();
-*/
+  cout << sizeof(enemy);
 
   return 0;
 }

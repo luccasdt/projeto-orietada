@@ -15,7 +15,7 @@ public:
   void ataque(Personagem *);
   void defesa(int);
   void detalhes();
-  void info();
+  void info(); 
 };
 
 #endif
