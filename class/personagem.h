@@ -19,7 +19,7 @@ class Personagem {
     int mente; // valor de 0 - 5 que aumenta a vida
     int sabedoria; // valor de 0 - 5 que aumenta a experiencia ganha pelo Personagem
   public:
-    Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa=100.0, int nn=1, int cc=0, int mm=0, int ss=0) :
+    Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn, int cc, int mm, int ss) :
       nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
     ~Personagem(){ }
 

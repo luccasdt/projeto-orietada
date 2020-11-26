@@ -10,7 +10,7 @@ using namespace std;
 class Viking : public Personagem
 {
 public:
-  Viking(string noMe, string nacio, double vv, double dd, double rd, double aa = 200.0, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+  Viking(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
       : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
   void ataque(Personagem *);
   void defesa(int);
