@@ -8,6 +8,7 @@ class Personagem {
   protected:
     // atributos comuns
     string nome; //nome do personagem
+    string nacionalidade; // nacionalidade (Ingles, Alemao ou Viking)
     double vida; //vida do personagem, pode variar de acordo com a categoria
     double dano; //dano que o personagem da em outros players
     double reduzDano; //valor aleatório entre 0 e 0.3 que reduz o dano causado pelo oponente
@@ -18,8 +19,8 @@ class Personagem {
     int mente; // valor de 0 - 5 que aumenta a vida
     int sabedoria; // valor de 0 - 5 que aumenta a experiencia ganha pelo Personagem
   public:
-    Personagem(string noMe, double vv, double dd, double rd, double aa=100.0, int nn=1, int cc=0, int mm=0, int ss=0) :
-      nome{noMe}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
+    Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn, int cc, int mm, int ss) :
+      nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
     ~Personagem(){ }
 
     //funcoes virtuais

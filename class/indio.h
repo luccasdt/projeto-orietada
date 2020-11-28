@@ -1,16 +1,14 @@
-#ifndef ALEMAO_H
-#define ALEMAO_H
+#ifndef INDIO_H
+#define INDIO_H
 #include "personagem.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
-using namespace std;
-
-class Alemao : public Personagem
+class Indio : public Personagem
 {
 public:
-  Alemao(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+  Indio(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
       : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
   void ataque(Personagem *);
   void defesa(int);
@@ -18,9 +16,7 @@ public:
   void info();
 };
 
-#endif
-
-void Alemao::ataque(Personagem *oponente)
+void Indio::ataque(Personagem *oponente)
 {
   srand(time(NULL));
   double aux1 = (rand() % 10);
@@ -29,12 +25,12 @@ void Alemao::ataque(Personagem *oponente)
   cout << "----> aux: " << aux << endl;
 }
 
-void Alemao::defesa(int _dano)
+void Indio::defesa(int _dano)
 {
   if (armadura <= 0)
   {
     vida = vida - _dano * reduzDano;
-    cout << "\n---> O Alemao " << nome << " perdeu " << _dano * reduzDano << "de vida!" << endl;
+    cout << "\n---> O Indio " << nome << " perdeu " << _dano * reduzDano << "de vida!" << endl;
   }
   else
   {
@@ -48,7 +44,7 @@ void Alemao::defesa(int _dano)
   }
 }
 
-void Alemao::detalhes()
+void Indio::detalhes()
 {
   cout << "________personagem_________" << endl;
   cout << "Nome: " << nome << endl;
@@ -61,7 +57,9 @@ void Alemao::detalhes()
   cout << "_______________________" << endl;
 }
 
-void Alemao::info()
+void Indio::info()
 {
-  cout << "Os Alemao são um povo da...";
+  cout << "Os Indio são um povo da...";
 }
+
+#endif
