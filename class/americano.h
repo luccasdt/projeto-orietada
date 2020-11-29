@@ -16,10 +16,10 @@ public:
   void detalhes();
   void info();
 
-  string getName();
-  int getHP();
-  int getSPD();
-  int getLVL();
+  // string getName();
+  // double getHP();
+  // int getSPD();
+  // int getLVL();
 };
 
 void Americano::ataque(Personagem *oponente)
@@ -75,17 +75,17 @@ void Americano::info()
 #endif
 
 
-int Americano::getLVL(){
-  return nivel;
-}
-int Americano::getSPD(){
-  return velocidade;
-}
+// int Americano::getLVL(){
+//   return nivel;
+// }
+// int Americano::getSPD(){
+//   return velocidade;
+// }
 
-string Americano::getName(){
-  return nome;
-}
+// string Americano::getName(){
+//   return nome;
+// }
 
-int Americano::getHP(){
-  return experiencia;
-}
+// double Americano::getHP(){
+//   return experiencia;
+// }

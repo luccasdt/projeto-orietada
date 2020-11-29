@@ -18,10 +18,10 @@ public:
   void detalhes();
   void info();
 
-  string getName();
-  int getHP();
-  int getSPD();
-  int getLVL();
+  // string getName();
+  // double getHP();
+  // int getSPD();
+  // int getLVL();
 };
 
 #endif
@@ -76,17 +76,17 @@ void Alemao::info()
   cout << "Os Alemao são um povo da...";
 }
 
-int Alemao::getLVL(){
-  return nivel;
-}
-int Alemao::getSPD(){
-  return velocidade;
-}
+// int Alemao::getLVL(){
+//   return nivel;
+// }
+// int Alemao::getSPD(){
+//   return velocidade;
+// }
 
-string Alemao::getName(){
-  return nome;
-}
+// string Alemao::getName(){
+//   return nome;
+// }
 
-int Alemao::getHP(){
-  return experiencia;
-}
+// double Alemao::getHP(){
+//   return experiencia;
+// }

@@ -18,10 +18,10 @@ public:
   void detalhes();
   void info();
 
-  string getName();
-  int getHP();
-  int getSPD();
-  int getLVL();
+  // string getName();
+  // double getHP();
+  // int getSPD();
+  // int getLVL();
 };
 
 #endif
@@ -77,17 +77,17 @@ void Ingles::info()
 }
 
 
-int Ingles::getLVL(){
-  return nivel;
-}
-int Ingles::getSPD(){
-  return velocidade;
-}
+// int Ingles::getLVL(){
+//   return nivel;
+// }
+// int Ingles::getSPD(){
+//   return velocidade;
+// }
 
-string Ingles::getName(){
-  return nome;
-}
+// string Ingles::getName(){
+//   return nome;
+// }
 
-int Ingles::getHP(){
-  return experiencia;
-}
+// double Ingles::getHP(){
+//   return experiencia;
+// }

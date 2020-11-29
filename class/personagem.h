@@ -25,10 +25,10 @@ class Personagem {
       nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
     ~Personagem(){ }
 
-    virtual string getName();
-    virtual int getHP();
-    virtual int getSPD();
-    virtual int getLVL();
+    // virtual string getName();
+    // virtual double getHP();
+    // virtual int getSPD();
+    // virtual int getLVL();
 
     //funcoes virtuais
     virtual void ataque(Personagem* op) {}
@@ -52,7 +52,6 @@ class Personagem {
 //   return nome;
 // }
 
-// int Personagem::getHP(){
+// double Personagem::getHP(){
 //   return experiencia;
 // }
-

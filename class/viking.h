@@ -18,10 +18,10 @@ public:
   void detalhes();
   void info(); 
 
-  string getName();
-  int getHP();
-  int getSPD();
-  int getLVL();
+  // string getName();
+  // double getHP();
+  // int getSPD();
+  // int getLVL();
 };
 
 #endif
@@ -77,17 +77,17 @@ void Viking::info()
 }
 
 
-int Viking::getLVL(){
-  return nivel;
-}
-int Viking::getSPD(){
-  return velocidade;
-}
+// int Viking::getLVL(){
+//   return nivel;
+// }
+// int Viking::getSPD(){
+//   return velocidade;
+// }
 
-string Viking::getName(){
-  return nome;
-}
+// string Viking::getName(){
+//   return nome;
+// }
 
-int Viking::getHP(){
-  return experiencia;
-}
+// double Viking::getHP(){
+//   return experiencia;
+// }

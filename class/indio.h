@@ -16,10 +16,10 @@ public:
   void detalhes();
   void info();
 
-  string getName();
-  int getHP();
-  int getSPD();
-  int getLVL();
+  // string getName();
+  // double getHP();
+  // int getSPD();
+  // int getLVL();
 };
 
 #endif
@@ -74,17 +74,17 @@ void Indio::info()
   cout << "Os Indio são um povo da...";
 }
 
-int Indio::getLVL(){
-  return nivel;
-}
-int Indio::getSPD(){
-  return velocidade;
-}
+// int Indio::getLVL(){
+//   return nivel;
+// }
+// int Indio::getSPD(){
+//   return velocidade;
+// }
 
-string Indio::getName(){
-  return nome;
-}
+// string Indio::getName(){
+//   return nome;
+// }
 
-int Indio::getHP(){
-  return experiencia;
-}
+// double Indio::getHP(){
+//   return experiencia;
+// }
