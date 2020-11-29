@@ -113,10 +113,10 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
           << *pts_dano;
      cout << "\nPontos de reducao de dano: "
           << *pts_reduzDano;
-     cout << "\nPontos de velocidade: "
-          << *pts_velocidade;
      cout << "\nPontos de armadura: "
-          << *pts_armadura << endl;
+          << *pts_armadura;
+     cout << "\nPontos de velocidade: "
+          << *pts_velocidade << endl;
 
      pressEnter();
 
@@ -203,7 +203,7 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
                     system("cls");
                     cout << "Valor atribuido!\n"
                          << endl;
-                    estado = 0;
+                    estado = 4;
                }
                else
                {
@@ -224,14 +224,14 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
                     system("cls");
                     cout << "Valor atribuido!\n"
                          << endl;
-                    estado = 0;
+                    estado = 5;
                }
                else
                {
                     system("cls");
                     cout << "Valor impossivel!\n"
                          << endl;
-                    estado = 3;
+                    estado = 4;
                }
                break;
           }
@@ -249,6 +249,8 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
           << *pts_reduzDano;
      cout << "\nPontos de armadura: "
           << *pts_armadura << endl;
+     cout << "\nPontos de armadura: "
+          << *pts_velocidade << endl;
 }
 
 // INICIA A CLASSE DO PLAYER
