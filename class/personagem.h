@@ -18,17 +18,41 @@ class Personagem {
     int corpo; // valor de 0 - 5 que aumenta o dano e reduzDano
     int mente; // valor de 0 - 5 que aumenta a vida
     int sabedoria; // valor de 0 - 5 que aumenta a experiencia ganha pelo Personagem
+    int velocidade; // Atributo que vai definir quem vai atacar primeiro
+    double experiencia;
   public:
     Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn, int cc, int mm, int ss) :
       nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
     ~Personagem(){ }
 
+    virtual string getName();
+    virtual int getHP();
+    virtual int getSPD();
+    virtual int getLVL();
+
     //funcoes virtuais
     virtual void ataque(Personagem* op) {}
+    virtual void ataqueEsp(Personagem* op) {}
     virtual void defesa(int _dano) {}
     virtual void detalhes() {}
-    virtual void info() {}
+    virtual void info() {}    
 
 };
 
 #endif
+
+// int Personagem::getLVL(){
+//   return nivel;
+// }
+// int Personagem::getSPD(){
+//   return velocidade;
+// }
+
+// string Personagem::getName(){
+//   return nome;
+// }
+
+// int Personagem::getHP(){
+//   return experiencia;
+// }
+

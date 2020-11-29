@@ -11,9 +11,15 @@ public:
   Americano(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
       : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
   void ataque(Personagem *);
+  void ataqueEsp(Personagem *);
   void defesa(int);
   void detalhes();
   void info();
+
+  string getName();
+  int getHP();
+  int getSPD();
+  int getLVL();
 };
 
 void Americano::ataque(Personagem *oponente)
@@ -23,6 +29,10 @@ void Americano::ataque(Personagem *oponente)
   double aux = aux1 / 10 + 1;
   oponente->defesa(dano * aux);
   cout << "----> aux: " << aux << endl;
+}
+
+void Americano::ataqueEsp(Personagem *oponente) {
+
 }
 
 void Americano::defesa(int _dano)
@@ -63,3 +73,19 @@ void Americano::info()
 }
 
 #endif
+
+
+int Americano::getLVL(){
+  return nivel;
+}
+int Americano::getSPD(){
+  return velocidade;
+}
+
+string Americano::getName(){
+  return nome;
+}
+
+int Americano::getHP(){
+  return experiencia;
+}

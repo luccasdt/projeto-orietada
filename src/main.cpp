@@ -14,6 +14,7 @@
 #include "../class/alemao.h"
 #include "../class/indio.h"
 #include "../class/americano.h"
+#include "../class/battle.h"
 
 using namespace std;
 
@@ -427,20 +428,22 @@ void setEnemy(Personagem *enemy[])
 }
 
 // GERA A BATALHA COM CADA UM DOS 5 PERSONAGENS
-bool battle(Personagem *enemy, Personagem *player)
-{
-     //----------------------------------------------------------
-     // deve retornar true se a batalha for ganha e false se nao
-     //----------------------------------------------------------
+// bool battle(Personagem *enemy, Personagem *player)
+// {
+//      //----------------------------------------------------------
+//      // deve retornar true se a batalha for ganha e false se nao
+//      //----------------------------------------------------------
 
-     // para teste:
-     return true;
-}
+//      // para teste:
+//      return true;
+// }
+//Apaguei pois vai ser necessária uma classe para isso
 
 // MAQUINA DE ESTADO DAS BATALHAS
 void stateBattles(Personagem *enemy[], Personagem *player)
 {
      int stateMachine = 1;
+     Battle *fight;
      /*
           stateMachine = 1 => vilao 1
           stateMachine = 2 => vilao 2
@@ -461,7 +464,7 @@ void stateBattles(Personagem *enemy[], Personagem *player)
      cout << "Historiaa..." << endl;
 
      pressEnter();
-
+      
      while (stateMachine < 6)
      {
           cout << stateMachine;
@@ -469,8 +472,11 @@ void stateBattles(Personagem *enemy[], Personagem *player)
           switch (stateMachine)
           {
           case 1:
-               // Verifica se o player ganhou
-               if (battle(enemy[0], player))
+              
+              fight = new Battle(player,enemy[0]);
+              // Verifica se o player ganhou
+               if (fight->Vitoria())
+               //if(true)
                {
                     system("CLS");
                     cout << "Voce ganhou! Parabens..." << endl;
@@ -504,8 +510,11 @@ void stateBattles(Personagem *enemy[], Personagem *player)
                }
                break;
           case 2:
+               
+               fight = new Battle(player, enemy[1]);
+                                               
                // Verifica se o player ganhou
-               if (battle(enemy[1], player))
+               if (fight->Vitoria())
                {
                     system("CLS");
                     cout << "Voce ganhou! Parabens..." << endl;
@@ -534,8 +543,11 @@ void stateBattles(Personagem *enemy[], Personagem *player)
                }
                break;
           case 3:
+
+               fight = new Battle(player, enemy[1]);
+                                               
                // Verifica se o player ganhou
-               if (battle(enemy[2], player))
+               if (fight->Vitoria())
                {
                     system("CLS");
                     cout << "Voce ganhou! Parabens..." << endl;
@@ -564,8 +576,10 @@ void stateBattles(Personagem *enemy[], Personagem *player)
                }
                break;
           case 4:
+               fight = new Battle(player, enemy[1]);
+                                               
                // Verifica se o player ganhou
-               if (battle(enemy[3], player))
+               if (fight->Vitoria())
                {
                     system("CLS");
                     cout << "Voce ganhou! Parabens..." << endl;
@@ -594,8 +608,10 @@ void stateBattles(Personagem *enemy[], Personagem *player)
                }
                break;
           case 5:
+               fight = new Battle(player, enemy[1]);
+                                               
                // Verifica se o player ganhou
-               if (battle(enemy[4], player))
+               if (fight->Vitoria())
                {
                     system("CLS");
                     cout << "Voce ganhou! Parabens..." << endl;
