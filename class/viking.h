@@ -10,18 +10,19 @@ using namespace std;
 class Viking : public Personagem
 {
 public:
-  Viking(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
-      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
+  Viking(string noMe, string nacio, double vv, double dd, double rd, double aa, double vel, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss, vel} {}
   void ataque(Personagem *oponente);
   void ataqueEsp(Personagem *oponente);
   void defesa(int);
   void detalhes();
   void info(); 
 
-  // string getName();
-  // double getHP();
-  // int getSPD();
-  // int getLVL();
+  string getName();
+  double getHP();
+  double getSPD();
+  int getLVL();
+  double getARM();
 };
 
 #endif
@@ -77,17 +78,22 @@ void Viking::info()
 }
 
 
-// int Viking::getLVL(){
-//   return nivel;
-// }
-// int Viking::getSPD(){
-//   return velocidade;
-// }
+int Viking::getLVL(){
+  return nivel;
+}
 
-// string Viking::getName(){
-//   return nome;
-// }
+double Viking::getSPD(){
+  return velocidade;
+}
 
-// double Viking::getHP(){
-//   return experiencia;
-// }
+string Viking::getName(){
+  return nome;
+}
+
+double Viking::getHP(){
+  return experiencia;
+}
+
+double Viking::getARM(){
+  return armadura;
+}

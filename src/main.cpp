@@ -95,7 +95,7 @@ bool playAgain()
 }
 
 // MENU DE ATRIBUICAO DE PONTOS DO PLAYER
-void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double *pts_reduzDano, double *pts_armadura)
+void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double *pts_reduzDano, double *pts_armadura, double *pts_velocidade)
 {
      double pts_input;
      int estado = 0;
@@ -113,6 +113,8 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
           << *pts_dano;
      cout << "\nPontos de reducao de dano: "
           << *pts_reduzDano;
+     cout << "\nPontos de velocidade: "
+          << *pts_velocidade;
      cout << "\nPontos de armadura: "
           << *pts_armadura << endl;
 
@@ -211,6 +213,27 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
                     estado = 3;
                }
                break;
+          case 4:
+               cout << "Voce ainda tem " << *pontos_dispon << " pontos." << endl;
+               cout << "Velocidade (0-5)pts: ";
+               cin >> pts_input;
+               if ((pts_input >= 0 && pts_input <= 5) && (pts_input <= *pontos_dispon))
+               {
+                    *pts_velocidade += pts_input;
+                    *pontos_dispon -= pts_input;
+                    system("cls");
+                    cout << "Valor atribuido!\n"
+                         << endl;
+                    estado = 0;
+               }
+               else
+               {
+                    system("cls");
+                    cout << "Valor impossivel!\n"
+                         << endl;
+                    estado = 3;
+               }
+               break;
           }
 
      } while (*pontos_dispon > 0);
@@ -232,7 +255,7 @@ void setScore(double *pontos_dispon, double *pts_vida, double *pts_dano, double 
 Personagem *iniciaJogador()
 {
      string nome;
-     double pts_vida = 0, pts_dano = 0, pts_reduzDano = 0, pts_input = 0, pts_armadura = 0, pontos_dispon = 20;
+     double pts_vida = 0, pts_dano = 0, pts_reduzDano = 0, pts_input = 0, pts_armadura = 0, pts_velocidade = 0, pontos_dispon = 20;
 
      // Solicita o nome
      system("cls");
@@ -337,7 +360,7 @@ Personagem *iniciaJogador()
      pressEnter();
 
      // Chama o sistema de adicionar pontos
-     setScore(&pontos_dispon, &pts_vida, &pts_dano, &pts_reduzDano, &pts_armadura);
+     setScore(&pontos_dispon, &pts_vida, &pts_dano, &pts_reduzDano, &pts_armadura, &pts_velocidade);
 
      pressEnter();
 
@@ -345,26 +368,26 @@ Personagem *iniciaJogador()
      switch (y)
      {
      case 0:
-          return new Ingles{nome, "Ingles", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Ingles{nome, "Ingles", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
 
      case 1:
-          return new Alemao{nome, "Alemao", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Alemao{nome, "Alemao", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
 
      case 2:
-          return new Viking{nome, "Viking", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Viking{nome, "Viking", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
      case 3:
-          return new Indio{nome, "Do brasil", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Indio{nome, "Do brasil", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
      case 4:
-          return new Americano{nome, "America", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Americano{nome, "America", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
      default:
           cout << "\n\n default "
                << "o y e: " << y << endl;
-          return new Americano{nome, "America", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Americano{nome, "America", pts_vida, pts_dano, pts_reduzDano, pts_armadura, pts_velocidade, 1, 4, 3, 2};
           break;
      }
 }
@@ -420,30 +443,19 @@ void setEnemy(Personagem *enemy[])
      }
 
      // Inicializa os atributos dos inimigos
-     enemy[0] = new Viking{"Luccas", "Viking", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2};
-     enemy[1] = new Ingles{"Pedro", "Ingles", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2};
-     enemy[2] = new Alemao{"Cleveo", "Alemao", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2};
-     enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2};
-     enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2};
+     enemy[0] = new Viking{"Luccas", "Viking", vida[0], dano[0], ReduzDano[0], armadura[0], 1, 4, 3, 2, 0};
+     enemy[1] = new Ingles{"Pedro", "Ingles", vida[1], dano[1], ReduzDano[1], armadura[1], 2, 4, 3, 2, 0};
+     enemy[2] = new Alemao{"Cleveo", "Alemao", vida[2], dano[2], ReduzDano[2], armadura[2], 3, 4, 3, 2, 0};
+     enemy[3] = new Indio{"joao", "Indio", vida[3], dano[3], ReduzDano[3], armadura[3], 4, 4, 3, 2, 0};
+     enemy[4] = new Americano{"Maria", "Americano", vida[4], dano[4], ReduzDano[4], armadura[4], 5, 4, 3, 2, 0};
 }
-
-// GERA A BATALHA COM CADA UM DOS 5 PERSONAGENS
-// bool battle(Personagem *enemy, Personagem *player)
-// {
-//      //----------------------------------------------------------
-//      // deve retornar true se a batalha for ganha e false se nao
-//      //----------------------------------------------------------
-
-//      // para teste:
-//      return true;
-// }
-//Apaguei pois vai ser necessária uma classe para isso
 
 // MAQUINA DE ESTADO DAS BATALHAS
 void stateBattles(Personagem *enemy[], Personagem *player)
 {
      int stateMachine = 1;
      Battle *fight;
+     bool win = false;
      /*
           stateMachine = 1 => vilao 1
           stateMachine = 2 => vilao 2
@@ -473,7 +485,11 @@ void stateBattles(Personagem *enemy[], Personagem *player)
           {
           case 1:
               
-              fight = new Battle(player,enemy[0]);
+               fight = new Battle(player,enemy[0]);
+              
+               system("cls");
+               fight->Lutar();
+               
               // Verifica se o player ganhou
                if (fight->Vitoria())
                //if(true)

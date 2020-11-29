@@ -10,18 +10,19 @@ using namespace std;
 class Alemao : public Personagem
 {
 public:
-  Alemao(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
-      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
+  Alemao(string noMe, string nacio, double vv, double dd, double rd, double aa, double vel, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss, vel} {}
   void ataque(Personagem *);
   void ataqueEsp(Personagem *);
   void defesa(int);
   void detalhes();
   void info();
 
-  // string getName();
-  // double getHP();
-  // int getSPD();
-  // int getLVL();
+  string getName();
+  double getHP();
+  double getSPD();
+  int getLVL();
+  double getARM();
 };
 
 #endif
@@ -76,17 +77,22 @@ void Alemao::info()
   cout << "Os Alemao são um povo da...";
 }
 
-// int Alemao::getLVL(){
-//   return nivel;
-// }
-// int Alemao::getSPD(){
-//   return velocidade;
-// }
+int Alemao::getLVL(){
+  return nivel;
+}
 
-// string Alemao::getName(){
-//   return nome;
-// }
+double Alemao::getSPD(){
+  return velocidade;
+}
 
-// double Alemao::getHP(){
-//   return experiencia;
-// }
+string Alemao::getName(){
+  return nome;
+}
+
+double Alemao::getHP(){
+  return experiencia;
+}
+
+double Alemao::getARM(){
+  return armadura;
+}
