@@ -248,77 +248,77 @@ Personagem *iniciaJogador()
           switch (y)
           {
           case 0:
-               cout << ">>" << left << setw(20) << "Ingles"
-                    << " - Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-                    << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << ">>" << left << setw(20) << "Alemaes"
+                    << " - " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Americanos"
+                    << "   " << endl;
                cout << right << setw(2) << " " << left << setw(20) << "Viking"
-                    << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "america"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Indio "
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Vikings "
+                    << "   " << endl;
                break;
           case 1:
-               cout << right << setw(2) << " " << left << setw(20) << "Ingles"
-                    << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << ">>" << left << setw(20) << "Alemao"
-                    << " - estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Alemaes"
+                    << "   " << endl;
+               cout << ">>" << left << setw(20) << "Americanos"
+                    << " - " << endl;
                cout << right << setw(2) << " " << left << setw(20) << "Viking"
-                    << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "america"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Indio "
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Vikings "
+                    << "   " << endl;
                break;
 
           case 2:
-               cout << right << setw(2) << " " << left << setw(20) << "Ingles"
-                    << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-                    << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Alemaes"
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Americanos"
+                    << "   " << endl;
                cout << ">>" << left << setw(20) << "Viking"
-                    << " - aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "america"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
+                    << " - " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Indio "
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Vikings "
+                    << "   " << endl;
                break;
           case 3:
-               cout << right << setw(2) << " " << left << setw(20) << "Ingles"
-                    << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-                    << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Alemaes"
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Americanos"
+                    << "   " << endl;
                cout << right << setw(2) << " " << left << setw(20) << "Viking"
-                    << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << ">>" << left << setw(20) << "do Brasil"
-                    << "  -  seu reino, sendo escudos inabalaveis." << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "america"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
+                    << "   " << endl;
+               cout << ">>" << left << setw(20) << "Indio "
+                    << "  -  " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Vikings "
+                    << "   " << endl;
                break;
           case 4:
-               cout << right << setw(2) << " " << left << setw(20) << "Ingles"
-                    << "   Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-                    << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Alemaes"
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Americanos"
+                    << "   " << endl;
                cout << right << setw(2) << " " << left << setw(20) << "Viking"
-                    << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
-               cout << ">>" << left << setw(20) << "america"
-                    << " - seu reino, sendo escudos inabalaveis." << endl;
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Indio "
+                    << "   " << endl;
+               cout << ">>" << left << setw(20) << "Vikings "
+                    << " - " << endl;
                break;
           default:
-               cout << ">>" << left << setw(20) << "Ingles"
-                    << " - Grandes estudiosos das artes misticas, os Alemaos" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "Alemao"
-                    << "   estao sempre sedentos por sabedoria e buscam se" << endl;
+               cout << ">>" << left << setw(20) << "Alemaes"
+                    << " - " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Americanos"
+                    << "   " << endl;
                cout << right << setw(2) << " " << left << setw(20) << "Viking"
-                    << "   aprofundar nos misterios do mundo imaterial, detendo poderes inimaginaveis" << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "do Brasil"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
-               cout << right << setw(2) << " " << left << setw(20) << "america"
-                    << "   seu reino, sendo escudos inabalaveis." << endl;
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Indio "
+                    << "   " << endl;
+               cout << right << setw(2) << " " << left << setw(20) << "Vikings "
+                    << "   " << endl;
                break;
           }
      } while (lerTeclas(0, 4) != true);
@@ -355,7 +355,7 @@ Personagem *iniciaJogador()
           return new Viking{nome, "Viking", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
           break;
      case 3:
-          return new Indio{nome, "Do brasil", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
+          return new Indio{nome, "Indio ", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
           break;
      case 4:
           return new Americano{nome, "America", pts_vida, pts_dano, pts_reduzDano, pts_armadura, 1, 4, 3, 2};
@@ -452,14 +452,14 @@ void stateBattles(Personagem *enemy[], Personagem *player)
      */
 
      system("CLS");
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
-     cout << "Historiaa..." << endl;
-
+     cout << "29/11/2120 - Europa\n\n" << endl;
+     cout << "Em uma sociedade pós a grande terceira guerra mundial" << endl;
+     cout << "tudo mudou. Muitas regiões foram arrasadas pelas grandes " << endl;
+     cout << "bombas responsáveis pela destruição de 70% da superficie" << endl;
+     cout << "terrestre restando apenas algumas vilas onde varios povos" << endl;
+     cout << "lutam entre sí em busca de seu espaço nesse mundo caótico." << endl;
+     cout << endl;   
+    
      pressEnter();
 
      while (stateMachine < 6)
