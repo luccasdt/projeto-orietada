@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.cpp": "cpp",
     ".sequelizerc": "javascript",
     ".stylelintrc": "json",
     ".prettierrc": "json",
@@ -7,7 +8,8 @@
     "array": "cpp",
     "string_view": "cpp",
     "initializer_list": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "ostream": "cpp"
   },
   "workbench.colorCustomizations": {
     "activityBar.background": "#2B2757",

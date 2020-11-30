@@ -8,13 +8,22 @@
 class Americano : public Personagem
 {
 public:
-  Americano(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
-      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
+  Americano(string noMe, string nacio, double vv, double dd, double rd, double aa, double vel, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss, vel} {}
   void ataque(Personagem *);
+  void ataqueEsp(Personagem *);
   void defesa(int);
   void detalhes();
   void info();
+
+  string getName();
+  double getHP();
+  double getSPD();
+  int getLVL();
+  double getARM();
 };
+
+#endif
 
 void Americano::ataque(Personagem *oponente)
 {
@@ -23,6 +32,10 @@ void Americano::ataque(Personagem *oponente)
   double aux = aux1 / 10 + 1;
   oponente->defesa(dano * aux);
   cout << "----> aux: " << aux << endl;
+}
+
+void Americano::ataqueEsp(Personagem *oponente) {
+
 }
 
 void Americano::defesa(int _dano)
@@ -62,4 +75,22 @@ void Americano::info()
   cout << "Os Americano são um povo da...";
 }
 
-#endif
+int Americano::getLVL(){
+  return nivel;
+}
+
+double Americano::getSPD(){
+  return velocidade;
+}
+
+string Americano::getName(){
+  return nome;
+}
+
+double Americano::getHP(){
+  return experiencia;
+}
+
+double Americano::getARM(){
+  return armadura;
+}

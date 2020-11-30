@@ -5,6 +5,7 @@
 using namespace std;
 
 class Personagem {
+
   protected:
     // atributos comuns
     string nome; //nome do personagem
@@ -18,16 +19,25 @@ class Personagem {
     int corpo; // valor de 0 - 5 que aumenta o dano e reduzDano
     int mente; // valor de 0 - 5 que aumenta a vida
     int sabedoria; // valor de 0 - 5 que aumenta a experiencia ganha pelo Personagem
+    double velocidade; // Atributo que vai definir quem vai atacar primeiro
+    double experiencia = 0.0;
+
   public:
-    Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn, int cc, int mm, int ss) :
-      nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss} {}
+    Personagem(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn, int cc, int mm, int ss, double vel) :
+      nome{noMe}, nacionalidade{nacio}, vida{vv}, dano{dd}, reduzDano{rd}, armadura{aa}, nivel{nn}, corpo{cc}, mente{mm}, sabedoria{ss}, velocidade{vel} {}
     ~Personagem(){ }
 
     //funcoes virtuais
     virtual void ataque(Personagem* op) {}
+    virtual void ataqueEsp(Personagem* op) {}
     virtual void defesa(int _dano) {}
     virtual void detalhes() {}
-    virtual void info() {}
+    virtual void info() {}    
+    virtual string getName() {}
+    virtual double getHP() {}
+    virtual int getLVL() {}
+    virtual double getSPD() {}
+    virtual double getARM() {}
 
 };
 

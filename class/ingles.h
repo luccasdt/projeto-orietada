@@ -10,12 +10,19 @@ using namespace std;
 class Ingles : public Personagem
 {
 public:
-  Ingles(string noMe, string nacio, double vv, double dd, double rd, double aa, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
-      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss} {}
+  Ingles(string noMe, string nacio, double vv, double dd, double rd, double aa, double vel, int nn = 1, int cc = 5, int mm = 2, int ss = 1)
+      : Personagem{noMe, nacio, vv * 1.2, dd * 2, rd * 1.6, aa, nn, cc, mm, ss, vel} {}
   void ataque(Personagem *);
+  void ataqueEsp(Personagem *);
   void defesa(int);
   void detalhes();
   void info();
+
+  string getName();
+  double getHP();
+  double getSPD();
+  int getLVL();
+  double getARM();
 };
 
 #endif
@@ -27,6 +34,10 @@ void Ingles::ataque(Personagem *oponente)
   double aux = aux1 / 10 + 1;
   oponente->defesa(dano * aux);
   cout << "----> aux: " << aux << endl;
+}
+
+void Ingles::ataqueEsp(Personagem *oponente) {
+
 }
 
 void Ingles::defesa(int _dano)
@@ -64,4 +75,25 @@ void Ingles::detalhes()
 void Ingles::info()
 {
   cout << "Os Ingles são um povo da...";
+}
+
+
+int Ingles::getLVL(){
+  return nivel;
+}
+
+double Ingles::getSPD(){
+  return velocidade;
+}
+
+string Ingles::getName(){
+  return nome;
+}
+
+double Ingles::getHP(){
+  return experiencia;
+}
+
+double Ingles::getARM(){
+  return armadura;
 }
